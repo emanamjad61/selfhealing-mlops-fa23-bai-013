@@ -17,6 +17,6 @@ spec:
       containers:
         - name: sentiment-api
           image: catmommy/sentiment-api:stable
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
