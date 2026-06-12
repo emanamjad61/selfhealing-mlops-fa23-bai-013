@@ -80,12 +80,12 @@ pipeline {
             steps {
                 sh '''
                     set -eux
-                    kubectl apply -f k8s/pvc.yaml
-                    kubectl apply -f k8s/blue-deployment.yaml
-                    kubectl apply -f k8s/green-deployment.yaml
-                    kubectl apply -f k8s/service.yaml
-                    kubectl rollout status deployment/sentiment-blue-deployment --timeout=300s
-                    kubectl rollout status deployment/sentiment-green-deployment --timeout=300s
+                    sudo -u azureuser kubectl apply -f k8s/pvc.yaml
+                    sudo -u azureuser kubectl apply -f k8s/blue-deployment.yaml
+                    sudo -u azureuser kubectl apply -f k8s/green-deployment.yaml
+                    sudo -u azureuser kubectl apply -f k8s/service.yaml
+                    sudo -u azureuser kubectl rollout status deployment/sentiment-blue-deployment --timeout=300s
+                    sudo -u azureuser kubectl rollout status deployment/sentiment-green-deployment --timeout=300s
                 '''
             }
         }
