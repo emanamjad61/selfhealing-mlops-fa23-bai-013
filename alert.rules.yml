@@ -1,0 +1,11 @@
+groups:
+  - name: sentiment-ml-alerts
+    rules:
+      - alert: ModelConfidenceDrift
+        expr: prediction_confidence_score < 0.573
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: Sentiment API model confidence drift detected
+          description: prediction_confidence_score has stayed below 0.573 for more than 1 minute.
